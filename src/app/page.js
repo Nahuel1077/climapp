@@ -82,7 +82,7 @@ export default function Home(){
       </div>
       <div className="img" id="imgContainer">
         <Image src="/cloudy.svg" id="imgCloudy" width="300" height="300" alt="cloudy"/>
-        <Image src="sunny.svg" id="imgSunny" width="300" height="300" alt="sunny"/>
+        <Image src="/sunny.svg" id="imgSunny" width="300" height="300" alt="sunny"/>
       </div>
     </div>
   )
