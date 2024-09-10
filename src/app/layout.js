@@ -1,8 +1,6 @@
 import React from 'react';
 import Image from "next/image"; 
-import Home from './page';
 import "./globals.css";
-import useClient from "next";
 
 export const metadata = {
   title: 'Climapp',

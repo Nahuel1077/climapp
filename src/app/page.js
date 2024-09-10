@@ -1,12 +1,14 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image"; 
+import "./globals.css";
 
 export default function Home() {
   const [query, setQuery] = useState('');
   const [weather, setWeather] = useState(null);
   const [isCelsius, setIsCelsius] = useState(true); 
   const [isSunny, setIsSunny] = useState(true); 
+  const [country, setCountry] = useState(null);
   const apiKey = process.env.NEXT_PUBLIC_API_KEY;
 
   const handleInputChange = (e) => {
@@ -26,7 +28,8 @@ export default function Home() {
       const weatherData = await weatherResponse.json();
 
       setWeather(weatherData.current);
-
+      setCountry(data[0].country);
+      console.log(weatherData);
       if (data[0].country === "United States of America") {
         setIsCelsius(false); 
       } else {
@@ -59,6 +62,7 @@ export default function Home() {
                   Temperatura actual: {weather.temperature}
                   {isCelsius ? <span>°C</span> : <span>°F</span>}
                 </h2>
+                <h2>{country}</h2>
                 <span id="error">No se encontraron resultados.</span>
               </div>
             )}
@@ -67,9 +71,9 @@ export default function Home() {
       </div>
       <div className="img" id="imgContainer" style={{ display: 'flex' }}>
         {!isSunny ? (
-          <Image src="/cloudy.svg" width={300} height={300} alt="cloudy" />
+          <Image src="/cloudy.svg" width={300} height={300} alt="cloudy" id="cloudy" />
         ) : (
-          <Image src="/sunny.svg" width={300} height={300} alt="sunny" />
+          <Image src="/sunny.svg" width={300} height={300} alt="sunny" id="sunny" />
         )}
       </div>
     </div>
