@@ -20,10 +20,10 @@ export default function RootLayout({ children }) {
             <li>About</li>
           </ul>
         </nav>
-        <Home/>
+        {children}
         <footer>
           <h1>Climapp fue desarrollado con Meteosource</h1>
-          <a href="www.meteosource.com">www.meteosource.com</a>     
+          <a href="https://www.meteosource.com">www.meteosource.com</a>     
         </footer>
       </body>
     </html>
